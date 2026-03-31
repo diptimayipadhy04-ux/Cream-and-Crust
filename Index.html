@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crèam & Crust - Premium Matka Ice Cream</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f8d7da" width="1200" height="800"/><circle fill="%23e3f2fd" cx="200" cy="200" r="150"/><circle fill="%23fff3e0" cx="800" cy="300" r="200"/><circle fill="%23f3e5f5" cx="1000" cy="600" r="120"/><path fill="%23ffebee" d="M400 500Q500 450 600 500Q700 550 800 500Q900 450 1000 500"/></svg>');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #8B4513;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,215,0,0.4);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #F9CA24);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .matka { background: linear-gradient(45deg, #D2B48C, #F4A460, #DEB887); }
+        .chocolate { background: linear-gradient(45deg, #8B4513, #654321, #A0522D); }
+        .strawberry { background: linear-gradient(45deg, #FF69B4, #C71585, #DB7093); }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 1.8rem;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: #FFD700;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Premium Section */
+        .premium {
+            background: linear-gradient(135deg, #F5F5DC 0%, #FAEBD7 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .premium h2 {
+            font-size: 3rem;
+            color: #8B4513;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Order Button Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .order-now {
+            animation: bounce 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Crèam & Crust</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#premium">Premium</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Crèam & Crust</h1>
+            <p>Premium Matka Ice Cream<br>Authentic Flavors in Traditional Clay Pots</p>
+            <a href="#products" class="cta-button order-now">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">Our Premium Collection</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image matka">🪔</div>
+                <div class="product-info">
+                    <h3>Classic Matka Kulfi</h3>
+                    <p>Traditional Indian ice cream served in authentic clay matka pots. Rich, creamy, and full of desi flavors.</p>
+                    <div class="product-price">₹299</div>
+                    <a href="#" class="cta-button">Add to Cart</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image chocolate">🍫</div>
+                <div class="product-info">
+                    <h3>Chocolate Matka</h3>
+                    <p>Decadent chocolate ice cream in matka pots. Silky smooth with intense cocoa flavor.</p>
+                    <div class="product-price">₹349</div>
+                    <a href="#" class="cta-button">Add to Cart</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image strawberry">🍓</div>
+                <div class="product-info">
+                    <h3>Strawberry Matka</h3>
+                    <p>Fresh strawberry ice cream in traditional clay pots. Sweet, tangy, and irresistibly creamy.</p>
+                    <div class="product-price">₹349</div>
+                    <a href="#" class="cta-button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Section -->
+    <section id="premium" class="premium">
+        <h2>Why Choose Crèam & Crust?</h2>
+        <div style="max-width: 800px; margin: 0 auto; font-size: 1.2rem;">
+            <p><strong>✅ Authentic Matka Experience:</strong> Served in traditional clay pots that enhance flavor</p>
+            <p><strong>✅ Premium Ingredients:</strong> Made with A1 milk, real fruits, and Belgian chocolate</p>
+            <p><strong>✅ No Preservatives:</strong> 100% natural and fresh daily</p>
+            <p><strong>✅ Hygienic Packaging:</strong> Se
